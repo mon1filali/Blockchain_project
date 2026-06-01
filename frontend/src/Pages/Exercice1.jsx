@@ -4,7 +4,7 @@ import BlockchainInfo from '../Components/BlockchainInfo'; // Ton afficheur glob
 import Web3 from 'web3';
 
 
-// Importation directe depuis le chemin synchronisé par Truffle
+// Importation directe depuis le chemin de build car je ne veux pas toucher la config de truffle et changer dans elle le chemin 
 import AdditionABI from '../../../build/contracts/Addition.json'; 
 
 function Exercice1() {
