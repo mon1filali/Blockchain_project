@@ -27,7 +27,7 @@ function Home() {
         {exercices.map((exercice) => (
           <Link
             key={exercice.id}
-            to={`/exo${exercice.id}`}
+            to={`/exercice${exercice.id}`}
             className="card"
           >
             <h3>Exercice {exercice.id}</h3>

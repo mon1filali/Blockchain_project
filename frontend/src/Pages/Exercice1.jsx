@@ -5,7 +5,7 @@ import Web3 from 'web3';
 
 
 // Importation directe depuis le chemin de build car je ne veux pas toucher la config de truffle et changer dans elle le chemin 
-import AdditionABI from '../../../build/contracts/Addition.json'; 
+import AdditionABI from '../contracts/Addition.json'; 
 
 function Exercice1() {
   const [result1, setResult1] = useState(null);
