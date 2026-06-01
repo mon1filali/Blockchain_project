@@ -24,14 +24,14 @@ function Home() {
       </header>
 
       <div className="cards-container">
-        {exercices.map((exo) => (
+        {exercices.map((exercice) => (
           <Link
-            key={exo.id}
-            to={`/exo${exo.id}`}
+            key={exercice.id}
+            to={`/exo${exercice.id}`}
             className="card"
           >
-            <h3>Exercice {exo.id}</h3>
-            <p>{exo.titre}</p>
+            <h3>Exercice {exercice.id}</h3>
+            <p>{exercice.titre}</p>
           </Link>
         ))}
       </div>
