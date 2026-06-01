@@ -1,4 +1,5 @@
 import React from 'react';
+import "../Style/BlockchainInfo.css";
 
 
 // ce composant est pour afficher les informations de la blockchain 
