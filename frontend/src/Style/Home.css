@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+.header {
+  background: linear-gradient(135deg, #1f3f96 0%, #112255 100%);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.header h2 {
+  margin: 10px 0;
+  font-weight: 400;
+  opacity: 0.9;
+  font-size: 1.3rem;
+}
+
+.header p {
+  font-style: normal;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.cards-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(31, 63, 150, 0.15);
+  border-color: rgba(31, 63, 150, 0.2);
+}
+
+.card h3 {
+  color: #1f3f96;
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+}
+
+.card p {
+  color: #666;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
