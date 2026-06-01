@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "../Style/Home.css";
 
 function Home() {
+
+  // la liste des exercices qui a ete donne dans le tp3 , avec le titre et le id pour le lien 
   const exercices = [
     { id: 1, titre: "Somme de deux nombres" },
     { id: 2, titre: "Conversion cryptomonnaies" },
