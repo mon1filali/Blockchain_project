@@ -94,7 +94,7 @@ function Exercice7() {
 
       <div className="exo-grid">
         <div className="card">
-          <h3>📋 Caractéristiques du Rectangle</h3>
+          <h3>Caractéristiques du Rectangle</h3>
           <div className="info-display">
             <p><strong>Type identifié :</strong> <span className="badge-type">{infoMessage}</span></p>
             <p><strong>Dimensions (lo × la) :</strong> {dimensions.lo} × {dimensions.la} m</p>
@@ -103,7 +103,7 @@ function Exercice7() {
         </div>
 
         <div className="card">
-          <h3>📍 Position & Déplacement</h3>
+          <h3>Position & Déplacement</h3>
           <p className="current-state">Position actuelle : <strong>X = {posX}</strong>, <strong>Y = {posY}</strong></p>
           <form onSubmit={handleDeplacer}>
             <input type="number" placeholder="Nouvelle coordonnée X" value={dx} onChange={e => setDx(e.target.value)} required />

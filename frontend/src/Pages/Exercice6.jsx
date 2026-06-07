@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import BlockchainInfo from '../Components/BlockchainInfo';
 import TransactionInfo from '../Components/TransactionInfo';
 import Web3 from 'web3';
-import GestionTableauABI from '../contracts/GestionTableau.json';
+import GestionTableauABI from '../contracts/SommeListeNombre.json';
 
 function Exercice6() {
   const [arrayElements, setArrayElements] = useState([]);

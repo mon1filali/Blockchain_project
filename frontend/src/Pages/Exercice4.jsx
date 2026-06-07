@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import BlockchainInfo from '../Components/BlockchainInfo';
 import TransactionInfo from '../Components/TransactionInfo';
 import Web3 from 'web3';
-import VerifPositifABI from '../contracts/VerifPositif.json';
+import VerifPositifABI from '../contracts/Positif.json';
 
 function Exercice4() {
   const [numberInput, setNumberInput] = useState('');
