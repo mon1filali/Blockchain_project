@@ -6,7 +6,7 @@ import "../Style/BlockchainInfo.css";
 function BlockchainInfo({ networkInfo, contractAddress, account, lastBlock, lastTransaction }) {
   return (
     <div className="blockchain-info-container">
-      <h2><span className="icon">⛓️</span> Informations de la Blockchain</h2>
+      <h2><span className="icon"></span> Informations de la Blockchain</h2>
       
       <div className="info-grid">
         {/* Section 1 : Réseau et Contrat */}

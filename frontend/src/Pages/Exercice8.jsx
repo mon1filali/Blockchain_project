@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import BlockchainInfo from '../Components/BlockchainInfo';
-import TransactionInfo from '../Components/TransactionInfo';
 import Web3 from 'web3';
 import PaymentABI from '../contracts/Payment.json';
 
@@ -73,7 +72,7 @@ function Exercice8() {
       setPaymentAmount('');
       refreshPaymentData(contractAddress);
     } catch (error) {
-      setActionError("❌ Échec du dépôt. Le montant doit être supérieur à 0 Wei.");
+      setActionError(" Échec du dépôt. Le montant doit être supérieur à 0 Wei.");
     }
   };
 
@@ -95,7 +94,7 @@ function Exercice8() {
 
       refreshPaymentData(contractAddress);
     } catch (error) {
-      setActionError("❌ Erreur de sécurité : Seul le destinataire (recipient) enregistré a le droit de retirer ces fonds !");
+      setActionError("Erreur de sécurité : Seul le destinataire (recipient) enregistré a le droit de retirer ces fonds !");
     }
   };
 
@@ -127,7 +126,6 @@ function Exercice8() {
       </div>
 
       <BlockchainInfo account={account} contractAddress={contractAddress} networkId={networkId} lastBlock={lastBlock} />
-      <TransactionInfo txDetails={txDetails} />
     </div>
   );
 }

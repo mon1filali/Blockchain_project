@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import BlockchainInfo from '../Components/BlockchainInfo';
-import TransactionInfo from '../Components/TransactionInfo';
 import Web3 from 'web3';
 import AdditionABI from '../contracts/Addition.json';
 
@@ -88,7 +87,6 @@ function Exercice1() {
       </div>
 
       <BlockchainInfo account={account} contractAddress={contractAddress} networkId={networkId} lastBlock={lastBlock} />
-      <TransactionInfo txDetails={txDetails} />
     </div>
   );
 }

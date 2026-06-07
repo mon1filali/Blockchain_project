@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import BlockchainInfo from '../Components/BlockchainInfo';
-import TransactionInfo from '../Components/TransactionInfo';
 import Web3 from 'web3';
 import GestionTableauABI from '../contracts/SommeListeNombre.json';
 
@@ -87,7 +86,7 @@ function Exercice6() {
       setSearchResult(`Élément à l'index ${indexInput} : ${element}`);
     } catch (error) {
       // Si l'index n'existe pas, Solidity lève une exception interceptée ici
-      setSearchError("❌ Erreur : L'indice demandé n'existe pas dans le tableau !");
+      setSearchError(" Erreur : L'indice demandé n'existe pas dans le tableau !");
     }
   };
 
@@ -121,7 +120,7 @@ function Exercice6() {
       </div>
 
       <BlockchainInfo account={account} contractAddress={contractAddress} networkId={networkId} lastBlock={lastBlock} />
-      <TransactionInfo txDetails={txDetails} />
+      
     </div>
   );
 }
