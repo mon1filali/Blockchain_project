@@ -21,34 +21,36 @@ async function deployAll() {
   try {
     const accounts = await web3.eth.getAccounts();
     const deployer = accounts[0]; // Ton premier compte Ganache
-    const networkId = "5777";
+    
+    // CORRECTION 1 : Récupération DYNAMIQUE du Network ID réel de ton Ganache au lieu de forcer "5777"
+    const currentNetworkId = await web3.eth.net.getId();
+    const networkIdStr = currentNetworkId.toString();
 
-    console.log(" Lancement du déploiement direct depuis le Frontend...");
-    console.log(`Compte émetteur : ${deployer}\n`);
+    console.log("🚀 Lancement du déploiement direct depuis le Frontend...");
+    console.log(`Compte émetteur : ${deployer}`);
+    console.log(`ID Réseau détecté sur Ganache : ${networkIdStr}\n`);
 
     for (let contractFile of files) {
       const filePath = path.join(contractsDir, contractFile.name);
       if (!fs.existsSync(filePath)) {
-        console.log(` Fichier introuvable : ${contractFile.name}`);
+        console.log(`❌ Fichier introuvable : ${contractFile.name}`);
         continue;
       }
 
       const artifact = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       
-      // Extraction stricte du bytecode épuré pour éviter l'erreur d'opcode invalide
       let bytecode = artifact.bytecode;
       if (!bytecode.startsWith('0x')) {
         bytecode = '0x' + bytecode;
       }
 
-      // Configuration dynamique des arguments du constructeur
       let deployArgs = contractFile.args;
       if (contractFile.name === "Payment.json") {
-        deployArgs = [accounts[1]]; // Assigne le deuxième compte Ganache comme bénéficiaire
+        deployArgs = [accounts[1]]; // Deuxième compte Ganache comme bénéficiaire
         console.log(`[Exo 8] Attribution du bénéficiaire au compte 2 : ${accounts[1]}`);
       }
 
-      console.log(`-> Instanciation de ${contractFile.name}...`);
+      console.log(`-> Instanciation et déploiement de ${contractFile.name}...`);
 
       const contractObject = new web3.eth.Contract(artifact.abi);
       
@@ -59,12 +61,12 @@ async function deployAll() {
       }).send({
         from: deployer,
         gas: 4000000,
-        gasPrice: '20000000000' // Aligné sur la configuration Ganache de ta capture d'écran
+        gasPrice: '20000000000'
       });
 
-      // Injection de l'adresse réseau dans l'artefact pour que React s'y connecte
+      // CORRECTION 2 : Injection propre à l'ID réseau actif détecté
       if (!artifact.networks) artifact.networks = {};
-      artifact.networks[networkId] = {
+      artifact.networks[networkIdStr] = {
         events: {},
         links: {},
         address: instance.options.address,
@@ -73,12 +75,12 @@ async function deployAll() {
 
       // Sauvegarde de l'artéfact mis à jour
       fs.writeFileSync(filePath, JSON.stringify(artifact, null, 2));
-      console.log(`  Déployé avec succès à l'adresse : ${instance.options.address}\n`);
+      console.log(`✅ Déployé avec succès à l'adresse : ${instance.options.address}\n`);
     }
 
-    console.log(" Opération réussie ! Tous les contrats sont liés à ton interface React.");
+    console.log("🎉 Opération réussie ! Tous les contrats sont liés à ton interface React.");
   } catch (error) {
-    console.error("Erreur de déploiement :", error.message);
+    console.error("❌ Erreur de déploiement :", error.message);
   }
 }
 

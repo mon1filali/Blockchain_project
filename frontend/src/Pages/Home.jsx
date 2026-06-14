@@ -17,7 +17,9 @@ function Home() {
 
   return (
     <div className="home">
+
       <header className="header">
+       
         <h1>Projet de Fin de Module</h1>
         <h2>Développement d'une dApp pour le TP 3</h2>
         <p>Solidity • Truffle • ReactJS</p>

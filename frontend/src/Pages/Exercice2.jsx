@@ -50,7 +50,7 @@ function Exercice2() {
 
   return (
     <div className="exo-page">
-      <Link to="/" className="back-link">← Sommaire</Link>
+      <Link to="/" className="back-link">← Retour</Link>
       <h2>Exercice 2 : Convertisseur Cryptomonnaies</h2>
 
       <div className="exo-grid">
